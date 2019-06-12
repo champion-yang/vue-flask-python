@@ -1,0 +1,46 @@
+{
+    "code":200,
+    "message":"成功",
+    "tableData":[
+        {
+            "num": "LY20180618003",
+            "time": 201900101,
+            "people": "张三",
+            "department": "研发部",
+            "company": "康达",
+            "storeroomTime": 20190606
+        },
+        {
+            "num": "LY20180618003",
+            "time": 201900101,
+            "people": "李四",
+            "department": "研发部",
+            "company": "康达",
+            "storeroomTime": 20190606
+        },
+        {
+            "num": "LY20180618003",
+            "time": 201900101,
+            "people": "王五",
+            "department": "研发部",
+            "company": "康达",
+            "storeroomTime": 20190606
+        },
+        {
+            "num": "LY20180618003",
+            "time": 201900101,
+            "people": "赵六",
+            "department": "研发部",
+            "company": "康达",
+            "storeroomTime": 20190606
+        },
+        {
+            "num": "LY20180618003",
+            "time": 201900101,
+            "people": "周七",
+            "department": "研发部",
+            "company": "康达",
+            "storeroomTime": 20190606
+        }
+    ]    
+}
