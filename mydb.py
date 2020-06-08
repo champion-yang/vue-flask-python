@@ -1,8 +1,8 @@
-import sqlalchemy
 import datetime
+
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String,Text,Time,DateTime,ForeignKey
 from sqlalchemy.orm import sessionmaker
 
 # 初始化数据库连接
@@ -14,15 +14,17 @@ session = DBSession()
 # 数据库表基类
 Base = declarative_base()
 
+
 # 管理员表
 class Admins(Base):
     __tablename__ = 'admins'
     id = Column(Integer, primary_key=True)  # id主键
-    username = Column(String(32),nullable=False)
-    password = Column(String(32),nullable=False)
-    # datatime = Column(Time,)
+    username = Column(String(32), nullable=False)
+    password = Column(String(32), nullable=False)
+
     def __repr__(self):
         return '<Admins (name=%s)>' % self.username
+
 
 # 用户表
 class Users(Base):
@@ -30,9 +32,12 @@ class Users(Base):
     id = Column(Integer, primary_key=True)  # id主键
     username = Column(String(32), nullable=False)
     password = Column(String(32), nullable=False)
+
     # 显示属性
     def __repr__(self):
         return '<Admins (name=%s)>' % self.username
+
+
 # 资产表
 class Property(Base):
     __tablename__ = 'property'  # 表名
@@ -45,14 +50,15 @@ class Property(Base):
     price = Column(Integer)
     company = Column(String(20))
     department = Column(String(20))
-    datetime = Column(DateTime,default=datetime.datetime.now())
+    datetime = Column(DateTime, default=datetime.datetime.now())
     user = Column(String(20))
-    admin_id = Column(Integer,ForeignKey("admins.id"))
+    admin_id = Column(Integer, ForeignKey("admins.id"))
     area = Column(String(20))
     life = Column(String(20))
     source = Column(Integer)
     info = Column(String(200))
     img = Column(String(200))
+
     def __repr__(self):
         return '<Property (name=%s)>' % self.name
 
@@ -61,12 +67,14 @@ class Property(Base):
 class Maintenance(Base):
     __tablename__ = "maintenance"
     id = Column(Integer, primary_key=True)  # id主键
-    property_id = Column(Integer,ForeignKey("property.id"))
+    property_id = Column(Integer, ForeignKey("property.id"))
     name = Column(String(20))
     person_name = Column(String(20))
     person_tel = Column(String(11))
     life = Column(String(20))
     info = Column(String(20))
+
+
 if __name__ == "__main__":
     Base.metadata.create_all(engine)
 
